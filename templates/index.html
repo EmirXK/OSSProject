@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>Tasks</h1>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task["title"] }}
+            <a href="{{ url_for('update', task_index=loop.index0) }}">Update</a>
+            <a href="{{ url_for('delete', task_index=loop.index0) }}">Delete</a>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="{{ url_for('create') }}">Create New Task</a>
+</body>
+</html>
